@@ -1,0 +1,55 @@
+.container {
+    width: 100%;
+
+}
+
+.row {
+    width: 100%;
+}
+
+.sorting__div {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid rgb(213, 211, 211);
+}
+
+.sorting__div span {
+    display: inline-block;
+    padding: 8px;
+    padding-bottom: 4px;
+    margin: 4px;
+    border: 2px solid transparent;
+
+}
+
+.sort-span2 {
+    font-weight: 500;
+}
+
+.sort-span2:hover {
+    border-bottom: 2px solid blue;
+    cursor: pointer;
+    color: #4f56c1;
+
+}
+
+
+/* =====================================================
+      Product List Div
+   ==================================================*/
+.product__box {
+
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    gap: 3px;
+    padding: 5px;
+    margin-right: 5px;
+
+}
+
+.row {
+
+    height: 450px;
+
+}

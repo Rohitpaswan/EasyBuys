@@ -1,0 +1,15 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Roboto:wght@400;500;700&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Robot',Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1,h2,h3,h4{
+  font-family: 'Raleway',Verdana, Geneva, Tahoma, sans-serif;;
+}
+

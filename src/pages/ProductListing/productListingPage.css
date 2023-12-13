@@ -1,0 +1,21 @@
+.product__wrapper {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    background-color: #f1f3f6;
+    gap: 8px;
+    padding: 8px;
+}
+
+.left__side-filter {
+    background-color: #fff;
+    box-shadow: 0 1px 5px 0  rgba(0, 0, 0, 0.4);
+  
+}
+
+.productlist {
+    width: 100%;
+    background-color: #f0f0f0;
+    line-height: 1.4;
+    box-shadow: 0 1px 8px 0  rgba(0, 0, 0, 0.2);
+}
+

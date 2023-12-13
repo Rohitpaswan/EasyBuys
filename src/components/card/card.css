@@ -1,0 +1,54 @@
+.card__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+
+}
+
+.card__img {
+    flex: .6;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+}
+
+.card__img img {
+    width: 50%;
+    height: 65%;
+    object-fit: cover;
+    margin-top: 22px;
+
+    vertical-align: middle;
+
+
+}
+
+.detail {
+    flex: .4;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+}
+
+
+.detail .price {
+    margin-top: 7px;
+    padding-bottom: 4px;
+}
+
+.price span {
+    display: inline-block;
+    padding: 1px;
+    font-weight: 500;
+}
+
+.card__wrapper:hover {
+    border: 1px solid rgb(213, 211, 211);
+    background-color: #fff;
+    border-radius: 8px;
+}
