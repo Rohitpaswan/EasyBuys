@@ -93,7 +93,7 @@ const Filter = ({ onFilterChange }) => {
       {/* Price Range Section */}
       <section className="filter-price">
         <span className="categories__span">Price Range</span>
-        <input type="range" min="0" max="100" value="50" />
+        <input type="range" min="0" max="100" />
       </section>
 
       {/* Customer Rating Section */}
