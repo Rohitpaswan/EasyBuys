@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      { "source": "^/$", "destination": "/home" },
+      { "source": "^/products.*", "destination": "/products" },
+      { "source": "^/cart", "destination": "/cart" }
+    ]
+  }
+  
