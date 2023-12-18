@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
-import './Filter.css'; 
+import './filter.css'; 
 import StarRateIcon from '@mui/icons-material/StarRate';
 
 
