@@ -19,3 +19,13 @@
     box-shadow: 0 1px 8px 0  rgba(0, 0, 0, 0.2);
 }
 
+
+
+/* i-Pads  */
+
+@media (max-width:1145px) {
+    .product__wrapper{
+        grid-template-columns: 1fr;
+    }
+    
+}

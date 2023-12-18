@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 import "./card.css";
 import CartContext from "../../context/cartContext/CartContext";
 import { useContext } from "react";
-import CustomButton from "../button/CustomButton";
+
 
 // ProductCard component represents a card displaying product information
 // Props:
@@ -41,11 +41,7 @@ const ProductCard = ({ title, image, description, price, rating }) => {
         </div>
         <div className="cart__btn">
           {/* Button to add the product to the cart */}
-          <CustomButton
-            text={"Add to Cart"}
-            onClick={handleAddToCart}
-            style={{ backgroundColor: "#1663b5", color: "white" }}
-          />
+          <button className="add-cart__btn" onClick={handleAddToCart}>Add to Cart</button>
         </div>
       </div>
     </div>

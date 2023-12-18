@@ -52,3 +52,62 @@
     background-color: #fff;
     border-radius: 8px;
 }
+.cart__btn{
+    width: 100%;
+}
+
+.cart__btn .add-cart__btn{
+    width: 50%;
+    height: 40px;
+    border-radius: 8px;
+    border: transparent;
+    padding: .4rem;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+    background-color: rgb(22, 99, 181);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.cart__btn .add-cart__btn:hover{
+    border: 2px solid rgba(157, 155, 223, 0.432);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* =====================================================
+        laptop-devices
+   ==================================================*/
+
+@media (max-width :1020px){
+    .cart__btn .add-cart__btn{
+        width: 80%;
+    }
+}
+
+
+/* =====================================================
+        mid screen-devices
+   ==================================================*/
+
+@media(max-width: 840px){
+
+}
+
+/* =====================================================
+        small screen-devices
+   ==================================================*/
+
+   @media(max-width: 550px){
+    .card__wrapper .card__img{
+        width: 80%;
+        height: 80%;
+    }
+    .cart__btn .add-cart__btn{
+        width: 60%;
+        height: 44px;
+        font-size: 18px;
+    }
+   }

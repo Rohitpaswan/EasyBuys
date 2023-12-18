@@ -9,9 +9,7 @@ function App() {
   return (
     <div className="main">
       <Navbar />
-     <Link to="./products">
-     <button style={{padding:'10px' ,margin:'16px'}}>Click me for products page</button>
-     </Link>
+   
      
 
       <Routes>

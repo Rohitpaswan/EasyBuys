@@ -36,7 +36,7 @@
 
 
 /* =====================================================
-      Product List Div
+      Product-box List Div
    ==================================================*/
 .product__box {
 
@@ -53,3 +53,42 @@
     height: 450px;
 
 }
+
+
+/* =====================================================
+        Laptop-devices
+   ==================================================*/
+
+   @media (max-width :1020px){
+    .product__box{
+        grid-template-columns: 25% 25% 25%;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+    }
+    .row{
+        height: 400px;
+    }
+   }
+
+/* =====================================================
+        Mid screen-devices
+   ==================================================*/
+   @media (max-width: 850px){
+    .product__box{
+        grid-template-columns: 50% 50%;
+    }
+   }
+
+   
+/* =====================================================
+        small screen-devices
+   ==================================================*/
+   @media (max-width: 550px){
+    .product__box{
+        grid-template-columns: 100%;
+        gap: 45px;
+       
+    }
+   }
+   
