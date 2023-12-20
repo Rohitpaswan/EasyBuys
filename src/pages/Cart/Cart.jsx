@@ -4,12 +4,15 @@ import { useContext, useState, useEffect } from "react";
 import CartContext from "../../context/cartContext/CartContext";
 
 import SecurityIcon from '@mui/icons-material/Security';
+import EmptyCart from "./EmptyCart";
 const Cart = () => {
   const { cartItem, totalItems } = useContext(CartContext);
+  const [hide, sethide]= useState(true)
   const [total, setTotal] = useState(0);
   const [subTotal, setSubTotal] = useState(0);
   const [tax, setTax] = useState(0);
   const [shippingCost, setShippingCost] = useState(0);
+  
 
   useEffect(() => {
     // Calculate subtotal when cartItem changes
@@ -25,11 +28,14 @@ const Cart = () => {
     if (produtcTotalPrice >= 350) setShippingCost(0);
     else setShippingCost(parseInt(50));
     
-    setTotal((shippingCost + taxAmount + subTotal).toFixed(2)); // Net ammount to be paid
-  }, [cartItem, shippingCost, subTotal]);
+    setTotal((shippingCost + taxAmount + subTotal).toFixed(2));
+    subTotal >0? sethide(false) : sethide(true)// Net ammount to be paid
+  }, [cartItem, shippingCost, subTotal, sethide]);
 
   return (
-    <div className="cart__wrapper">
+    <>
+   { hide  ? (<EmptyCart/>) :  (
+      <div className="cart__wrapper">
       {/* Cart-Item list */}
       <div className="left__side">
         <div className="cart__header">
@@ -90,7 +96,11 @@ const Cart = () => {
         </div>
       </div>
     </div>
+    )
+   }
+   </> 
   );
+  
 };
 
 export default Cart;

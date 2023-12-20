@@ -1,14 +1,18 @@
-import { useState } from 'react';
-import FilterAltOutlinedIcon from '@mui/icons-material/FilterAltOutlined';
-import './filter.css'; 
-import StarRateIcon from '@mui/icons-material/StarRate';
-
+import { useState,useEffect } from "react";
+import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
+import "./filter.css";
+import StarRateIcon from "@mui/icons-material/StarRate";
 
 const Filter = ({ onFilterChange }) => {
   const [selectedItem, setSelectedItem] = useState([]);
   const [isOpen, setIsOpen] = useState(true);
 
-  const categories = ["men's clothing", "women's clothing", "electronics", "jewelery"];
+  const categories = [
+    "men's clothing",
+    "women's clothing",
+    "electronics",
+    "jewelery",
+  ];
   const ratings = [1, 2, 3, 4];
 
   const handelChange = (e) => {
@@ -27,18 +31,39 @@ const Filter = ({ onFilterChange }) => {
     onFilterChange(selectedItem);
   };
 
-  const toggleDropdown = () => {
-    const isMoblieSccreen = window.matchMedia('(max-width: 1145px)').matches;  //check screen-width 1145px; 
-    if(isMoblieSccreen)  setIsOpen(!isOpen);
+  const handelResize = () =>{
+    if(window.innerWidth <= 1000) setIsOpen(preVal => !preVal);
     else setIsOpen(true)
-  };
+  }
 
+  useEffect(() => {
+    const handleWindowResize = () => {
+      if (window.innerWidth <= 1140) {
+        setIsOpen(false);
+      } else {
+        setIsOpen(true);
+      }
+    };
+    handleWindowResize();
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  }, []);
+ 
+
+console.log(isOpen);
+ 
   return (
     <div className="filter__section">
       <div className="filter" >
-      <FilterAltOutlinedIcon  onClick={toggleDropdown}style={{fontSize:"20px", }}/>
-        <h4 onClick={toggleDropdown}>Filters</h4>
-       
+        <FilterAltOutlinedIcon        
+         style={{ fontSize: "20px" }}
+         onClick={handelResize}
+        />
+        <h4 onClick={handelResize}>Filters</h4>
       </div>
 
       {isOpen && (
@@ -66,14 +91,12 @@ const Filter = ({ onFilterChange }) => {
           </section>
 
           <section className="apply-filters">
-           <button onClick={handleApplyFilters} className='filter__btn'> Apply Filters</button>
+            <button onClick={handleApplyFilters} className="filter__btn">
+              {" "}
+              Apply Filters
+            </button>
           </section>
-
-          <section className="filter-price">
-            <span className="categories__span">Price Range</span>
-            <input type="range" min="0" max="100" />
-          </section>
-
+                    {/* Rating */}
           <section className="customer__form">
             <span className="categories__span">CUSTOMER RATINGS</span>
             {ratings.map((rating, index) => (
@@ -86,14 +109,17 @@ const Filter = ({ onFilterChange }) => {
                 />
                 &nbsp;&nbsp;
                 <label htmlFor="">
-                  {rating} <StarRateIcon fontSize="16px" />{' '}
-                  <span style={{ textTransform: 'none' }}>& Above</span>
+                  {rating} <StarRateIcon fontSize="16px" />{" "}
+                  <span style={{ textTransform: "none" }}>& Above</span>
                 </label>
               </div>
             ))}
 
             <section className="apply-filters">
-            <button onClick={handleApplyFilters} className='filter__btn'> Apply Filters</button>
+              <button onClick={handleApplyFilters} className="filter__btn">
+                {" "}
+                Apply Filters
+              </button>
             </section>
           </section>
         </>

@@ -49,8 +49,15 @@ const CartContextProvider = ({ children }) => {
       }
       return product;
     });
-    setCartItem(updatedCart);
+  
+    // Remove the item from the cart if its quantity becomes zero
+    const filteredCart = updatedCart.filter(
+      (product) => !(product.title === productTitle && product.quantity === 0)
+    );
+  
+    setCartItem(filteredCart);
   };
+  
 
   // Function to calculate the total number of items in the cart
   const totalItems = () => {
