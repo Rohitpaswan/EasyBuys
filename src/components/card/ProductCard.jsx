@@ -19,6 +19,7 @@ const ProductCard = ({ title, image, description, price, rating }) => {
 
   // Function to handle adding the current item to the cart
   const handleAddToCart = () => {
+
     // Call the addCartItem function from CartContext to add the current item to the cart
     addCartItem(title, image, description, price, rating);
   };
@@ -37,7 +38,8 @@ const ProductCard = ({ title, image, description, price, rating }) => {
         </div>
         <div className="price">
           {/* Product Price */}
-          <span>Price: &nbsp;</span>${price}
+          <span>Price: </span>${price}&nbsp;
+          <span>&nbsp;Rating: </span>{rating}
         </div>
         <div className="cart__btn">
           {/* Button to add the product to the cart */}

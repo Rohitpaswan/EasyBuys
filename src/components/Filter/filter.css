@@ -1,7 +1,7 @@
 .filter__section{
   background-color: #fff;
   display: flex;
-  align-items: center;
+ 
   justify-content: center;
   flex-direction: column;
 
@@ -15,6 +15,7 @@
   justify-content: center;
   border-bottom: 1px solid rgb(213, 211, 211);
   width: 100%;
+ 
 }
 
 .filter h4{
@@ -34,6 +35,7 @@
 .categories{
  
   background-color: #fff;
+  border-bottom: 1px solid rgb(213, 211, 211);
 
 }
 
@@ -44,14 +46,17 @@
   font-weight: 500;
   text-transform: uppercase; 
   padding-top: 12px;
-  padding-left: 15px;
+  padding-left: 14px;
   padding-bottom: 15px;
 
 }
-
+ .cutm-span{
+padding-left: 7px;
+}
 .categories__form{
   margin: 7px;
   margin-top: 0;
+  padding-left: 1px;
 }
 
 .input__wrapper{
@@ -116,14 +121,27 @@
 .customer__form{
   border: none;
   padding-bottom: 10px;
- 
+ padding-left: 10px;
   margin: 2px;
+  border-bottom: 1px solid rgb(213, 211, 211);
 }
 .customer__form .input_div{
   margin-bottom: 4px;
+
 }
 
-/* 1145px */
+
+
+.categories__wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+
+/*for screen-size  1145px */
 @media (max-width :1145px){
   .apply-filters  .filter__btn{
     height: 40px;

@@ -61,7 +61,7 @@ input:focus {
     padding-right: 18px;
     margin-left: 10px;
     margin-right: 45px;
-   
+
 
 
 }
@@ -86,8 +86,8 @@ input:focus {
 .item__quantity {
     display: inline-block;
     position: absolute;
-    top: 3.2px;
-    color: #fff;
+    font-weight: 600;
+    color: #ff4000;
     font-weight: 500;
     padding-left: 30px;
 
@@ -152,12 +152,9 @@ input:focus {
 
 @media (max-width :800px) {
     .header {
-      grid-template-columns:0 auto auto;
+        grid-template-columns: 0 auto auto;
         padding: 8px;
         height: auto;
-      position: static;
-
-
     }
 
     .search {
@@ -166,9 +163,7 @@ input:focus {
         grid-column: 2/span 2;
         padding: 2px 5px;
         margin: 0 15px;
-        position: sticky;
-        top: 0;
-        z-index: 999;
+
     }
 
     .search input {
@@ -182,25 +177,26 @@ input:focus {
 
 
 @media (max-width :500px) {
-  
 
-    .icons{
+
+    .icons {
         margin-right: 0;
     }
-    .login__div{
+
+    .login__div {
         margin-right: 0;
     }
-} 
-
-
-@media (max-width :420px){
-.header{
-    grid-template-columns: 0 30% 70%;
 }
 
-.login__div .login__btn{
-    font-size: 14px;
-    padding: 8px;
-   width: 120px;
-}
+
+@media (max-width :420px) {
+    .header {
+        grid-template-columns: 0 30% 70%;
+    }
+
+    .login__div .login__btn {
+        font-size: 14px;
+        padding: 8px;
+        width: 120px;
+    }
 }

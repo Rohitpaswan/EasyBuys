@@ -1,73 +1,60 @@
-import { useState,useEffect } from "react";
 import FilterAltOutlinedIcon from "@mui/icons-material/FilterAltOutlined";
-import "./filter.css";
 import StarRateIcon from "@mui/icons-material/StarRate";
+import { useState, useEffect } from "react";
+import "./filter.css";
 
-const Filter = ({ onFilterChange }) => {
-  const [selectedItem, setSelectedItem] = useState([]);
-  const [isOpen, setIsOpen] = useState(true);
-
+const Filter = ({
+  handelChange,
+  handelRating,
+  selectedCategory,
+  selectedRating,
+}) => {
   const categories = [
     "men's clothing",
     "women's clothing",
     "electronics",
     "jewelery",
   ];
-  const ratings = [1, 2, 3, 4];
+  const ratings = ["1", "2", "3", "4"];
+  const [showDiv, setShowDiv] = useState(false);
+  const [width, setWidth] = useState(window.innerWidth);
 
-  const handelChange = (e) => {
-    const value = e.target.value;
-    const checked = e.target.checked;
+  useEffect(() => {
+    function handleResize() {
+      if (width >= 1145) {
+        setShowDiv(true);
+      } else {
+        setShowDiv(false);
+      }
+    }
 
-    if (checked) {
-      setSelectedItem([...selectedItem, value]);
-    } else {
-      const newArray = selectedItem.filter((item) => item !== value);
-      setSelectedItem(newArray);
+    // Check on initial load
+    handleResize();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", handleResize);
+    // Clean up event listener on component unmount
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const toggleDiv = () => {
+    if (width <= 1145) {
+      setShowDiv(!showDiv);
     }
   };
 
-  const handleApplyFilters = () => {
-    onFilterChange(selectedItem);
-  };
-
-  const handelResize = () =>{
-    if(window.innerWidth <= 1000) setIsOpen(preVal => !preVal);
-    else setIsOpen(true)
-  }
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      if (window.innerWidth <= 1140) {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
-      }
-    };
-    handleWindowResize();
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  }, []);
- 
-
-console.log(isOpen);
- 
   return (
     <div className="filter__section">
-      <div className="filter" >
-        <FilterAltOutlinedIcon        
-         style={{ fontSize: "20px" }}
-         onClick={handelResize}
+      <div className="filter">
+        <FilterAltOutlinedIcon
+          style={{ fontSize: "20px" }}
+          onClick={toggleDiv}
         />
-        <h4 onClick={handelResize}>Filters</h4>
+        <h4 onClick={toggleDiv}>Filters</h4>
       </div>
 
-      {isOpen && (
-        <>
+      {showDiv && (
+        <div className="categories__wrapper">
           <section className="categories">
             <span className="categories__span">Categories</span>
             <div className="categories__form">
@@ -80,6 +67,7 @@ console.log(isOpen);
                         name=""
                         value={val}
                         onChange={handelChange}
+                        checked={selectedCategory.includes(val)}
                       />
                       &nbsp;&nbsp;
                       <label htmlFor="">{val}</label>
@@ -90,39 +78,29 @@ console.log(isOpen);
             </div>
           </section>
 
-          <section className="apply-filters">
-            <button onClick={handleApplyFilters} className="filter__btn">
-              {" "}
-              Apply Filters
-            </button>
-          </section>
-                    {/* Rating */}
+          {/* Rating */}
           <section className="customer__form">
-            <span className="categories__span">CUSTOMER RATINGS</span>
+            <span className="categories__span custm-span">
+              CUSTOMER RATINGS
+            </span>
             {ratings.map((rating, index) => (
               <div key={index} className="input_div">
                 <input
                   type="checkbox"
-                  name=""
+                  name="name"
                   value={rating}
-                  onChange={handelChange}
+                  onChange={handelRating}
+                  checked={selectedRating.includes(rating)}
                 />
                 &nbsp;&nbsp;
-                <label htmlFor="">
+                <label>
                   {rating} <StarRateIcon fontSize="16px" />{" "}
                   <span style={{ textTransform: "none" }}>& Above</span>
                 </label>
               </div>
             ))}
-
-            <section className="apply-filters">
-              <button onClick={handleApplyFilters} className="filter__btn">
-                {" "}
-                Apply Filters
-              </button>
-            </section>
           </section>
-        </>
+        </div>
       )}
     </div>
   );
